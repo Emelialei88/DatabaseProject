@@ -43,12 +43,10 @@ int main(int argc, char* argv[])
                 db.insert(parser.get_name(), parser.get_email()); break;
             case SQLParser::SQLType::UPDATE:
                 //to do your code
-                
-                break;
+                db.update(parser.get_name(), parser.get_email()); break;
             case SQLParser::SQLType::DELETE:
                 //to do your code
-                
-                break;
+                db.delete_record(parser.get_name()); break;
             case SQLParser::SQLType::EXIT:
                 db.save_data(); 
                 cout << "database exited." << endl;

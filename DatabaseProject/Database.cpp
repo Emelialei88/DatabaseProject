@@ -56,11 +56,27 @@ void Database::insert(const string & name, const string & email)
 void Database::update(const string & name, const string & email)
 {
     // to do your code
+    People person(name, email);
+    auto itr = find(m_data.begin(), m_data.end(), person);
+    if (itr == m_data.end()) {
+        cout << name << " is not in database!" << endl;
+        return;
+    }
+    (*itr).email = email;
+    cout << "update success." << endl;
 }
 
 void Database::delete_record(const string & name)
 {
     // to do your code 
+    People person(name, "");
+    auto itr = find(m_data.begin(), m_data.end(), person);
+    if (itr == m_data.end()) {
+        cout << name << " is not in database!" << endl;
+        return;
+    }
+    m_data.erase(itr);
+    cout << "delete success." << endl;
 }
 
 void Database::save_data(void)

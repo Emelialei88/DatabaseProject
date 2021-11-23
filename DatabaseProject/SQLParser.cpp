@@ -67,6 +67,13 @@ void SQLParser::parser(const string& command)
     else if (operatorWord == "delete")
     {
         // to do your code
+        m_type = SQLType::DELETE;
+        iss >> m_name;
+        if (m_name.empty()) 
+        {
+            m_state = State::BAD;
+            cout << "not valid delete! without name." << endl;
+        }
     }
     else if (operatorWord == "select")
     {
